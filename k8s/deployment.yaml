@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: matheusmprado/sampletodo:v1
+          image: matheusmprado/sampletodoaula3:latest
           ports:
             - containerPort: 3000
           env:
