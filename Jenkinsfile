@@ -1,19 +1,23 @@
 pipeline {
     agent any
+ 
     stages {
-        stage ("Build Image"){
+        stage ('Build Image') {
             steps {
                 script {
-                    dockerapp = docker.build("matheusmprado/sampletodoaula3:v${env.BUILD_ID}", '-f ./dockerfile .')
+                    dockerapp = docker.build("matheusmprado/sampletodojenkins:${env.BUILD_ID}", '-f ./dockerfile .')
                 }
             }
         }
-        stage ("Push Image"){
+ 
+ 
+        stage ("Push image") {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com','dockerhub'){
-                        dockerapp.push('latest')
-                        dockerapp.push('${env.BUILD_ID}')
+                      docker.withRegistry('https://registry.hub.docker.com','dockerhub'){
+                      dockerapp.push('latest')
+                      dockerapp.push("${env.BUILD_ID}")
+                    }
                 }
             }
         }
