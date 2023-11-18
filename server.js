@@ -47,7 +47,6 @@ app.post('/todo', (req, res) => {
             console.error('Erro ao inserir dados:', err);
             return res.status(500).json({ error: 'Erro ao inserir os dados.' });
         }
-        console.log('Dados inseridos com sucesso:', result);
         return res.status(200).json({ message: 'Dados inseridos com sucesso.' });
     });
 });
