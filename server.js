@@ -57,7 +57,7 @@ app.get('/todo', (req, res) => {
     const sql = 'SELECT * from tabela_exemplo';
     db.query(sql, [], (err, result) => {
         if (err) {
-            console.error('Erro ao listar dados:', err);
+
             return res.status(500).json({ error: 'Erro ao listar os dados.' });
         }
         console.log('Dados listados com sucesso:', result);
