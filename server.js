@@ -44,7 +44,6 @@ app.post('/todo', (req, res) => {
     const sql = 'INSERT INTO tabela_exemplo (todo) VALUES (?)';
     db.query(sql, [novoDado.todo], (err, result) => {
         if (err) {
-            console.error('Erro ao inserir dados:', err);
             return res.status(500).json({ error: 'Erro ao inserir os dados.' });
         }
         return res.status(200).json({ message: 'Dados inseridos com sucesso.' });
